@@ -24,11 +24,11 @@ load_dotenv()
 def create_app():
     app = Flask(__name__)
     # app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
-    app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql://root:admin123@localhost/article_db'
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_CONNECTOR")
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     meta = MetaData()
-    engine = create_engine('mysql://root:admin123@localhost/article_db')
-
+    engine = create_engine(os.getenv("DATABASE_CONNECTOR"))
+    #engine = create_engine('mysql://root:admin123@localhost/article_db')
     articles = Table(
         'articles', meta,
         Column('id', Integer, primary_key=True, autoincrement=True),
