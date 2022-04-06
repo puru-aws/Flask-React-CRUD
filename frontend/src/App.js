@@ -9,7 +9,7 @@ function App() {
   const [editedArticle, setEditedArticle] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/articles', {
+    fetch('http://apptest.sample-app.com:5000/articles', {
       'methods': 'GET',
       headers: {
         'Content-Type': 'application/json'
